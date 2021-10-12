@@ -1,12 +1,17 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:misiontic_template/domain/controllers/theme_controller.dart';
+import 'package:misiontic_template/domain/use_case/controllers/camera_controller.dart';
+import 'package:misiontic_template/domain/use_case/controllers/theme_controller.dart';
+import 'package:misiontic_template/domain/use_case/controllers/ui.dart';
 import 'package:misiontic_template/domain/use_case/theme_management.dart';
-import 'package:misiontic_template/presentation/pages/stateless/index.dart';
+import 'package:misiontic_template/presentation/pages/home/home_page.dart';
 import 'package:misiontic_template/presentation/theme/theme.dart';
 
 class App extends StatefulWidget {
-  const App({Key? key}) : super(key: key);
+  final CameraDescription camera;
+
+  const App({Key? key, required this.camera}) : super(key: key);
 
   @override
   _AppState createState() => _AppState();
@@ -14,9 +19,11 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   // Dependency injection: setting up state management
-  late final ThemeController controller = Get.put(ThemeController());
+  late final ThemeController controller;
+  late final UIController uiController;
+  late final CamController camController;
   // Theme management
-  late final ThemeManager manager = ThemeManager();
+  late final ThemeManager manager;
   bool isLoaded = false;
 
   Future<void> initializeTheme() async {
@@ -26,6 +33,12 @@ class _AppState extends State<App> {
 
   @override
   void initState() {
+    // Dependency injection: setting up state management
+    controller = Get.put(ThemeController());
+    uiController = Get.put(UIController());
+    camController = Get.put(CamController(widget.camera));
+    // Theme management
+    manager = ThemeManager();
     ever(controller.reactiveDarkMode, (bool isDarkMode) {
       manager.changeTheme(isDarkMode: isDarkMode);
     });
@@ -36,13 +49,13 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return !isLoaded
-        ? CircularProgressIndicator()
+        ? const CircularProgressIndicator()
         : GetMaterialApp(
             debugShowCheckedModeBanner: false,
             theme: MyTheme.ligthTheme,
             darkTheme: MyTheme.darkTheme,
             themeMode: ThemeMode.system,
-            home: StatelessList(),
+            home: const HomePage(),
           );
   }
 }

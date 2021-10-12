@@ -29,4 +29,16 @@ class AppColors {
     });
     return MaterialColor(color.value, swatch);
   }
+
+  static ColorScheme lightScheme = const ColorScheme.light(
+    primary: primaryColor,
+    primaryVariant: darkPrimaryColor,
+    secondary: accentColor,
+  );
+
+  static ColorScheme darkScheme = const ColorScheme.dark(
+    primary: primaryColor,
+    primaryVariant: darkPrimaryColor,
+    secondary: accentColor,
+  );
 }

@@ -1,12 +1,15 @@
-import 'package:flutter/foundation.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:misiontic_template/presentation/app.dart';
 
-void main() {
-  LicenseRegistry.addLicense(() async* {
-    final license = await rootBundle.loadString('google_fonts/LICENSE.txt');
-    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
-  });
-  runApp(App());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Obtain a list of the available cameras on the device.
+  final cameras = await availableCameras();
+  // Get a specific camera from the list of available cameras.
+  final firstCamera = cameras.first;
+  
+  runApp(App(
+    camera: firstCamera,
+  ));
 }

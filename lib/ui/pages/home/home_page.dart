@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:misiontic_template/domain/use_case/controllers/camera_controller.dart';
 import 'package:misiontic_template/domain/use_case/controllers/theme_controller.dart';
 import 'package:misiontic_template/domain/use_case/controllers/ui.dart';
-import 'package:misiontic_template/presentation/pages/home/camera/camera_screen.dart';
-import 'package:misiontic_template/presentation/pages/home/preview/preview_screen.dart';
-import 'package:misiontic_template/presentation/widgets/appbar.dart';
+import 'package:misiontic_template/ui/pages/home/camera/camera_screen.dart';
+import 'package:misiontic_template/ui/pages/home/preview/preview_screen.dart';
+import 'package:misiontic_template/ui/widgets/appbar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -5,8 +5,8 @@ import 'package:misiontic_template/domain/use_case/controllers/camera_controller
 import 'package:misiontic_template/domain/use_case/controllers/theme_controller.dart';
 import 'package:misiontic_template/domain/use_case/controllers/ui.dart';
 import 'package:misiontic_template/domain/use_case/theme_management.dart';
-import 'package:misiontic_template/presentation/pages/home/home_page.dart';
-import 'package:misiontic_template/presentation/theme/theme.dart';
+import 'package:misiontic_template/ui/pages/home/home_page.dart';
+import 'package:misiontic_template/ui/theme/theme.dart';
 
 class App extends StatefulWidget {
   final CameraDescription camera;

@@ -16,7 +16,8 @@ class _State extends State<PreviewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    // TODO Si hay una imagen disponible debes mostrarla si no mostrar un spinner
+    /* return Center(
       child: Obx(() {
         if (camState.picturePath.isNotEmpty) {
           return Image.file(File(camState.picturePath));
@@ -24,6 +25,6 @@ class _State extends State<PreviewScreen> {
           return const CircularProgressIndicator();
         }
       }),
-    );
+    ); */
   }
 }

@@ -45,7 +45,9 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         // Provide an onPressed callback.
         onPressed: () async {
-          // Ensure that the camera is initialized.
+          // TODO si la camara ha sido inicializada tratar de tomar una foto, si fue exitoso,
+          // Pasar a la siguiente pantalla y mostrar la imagen capturada.
+          /* // Ensure that the camera is initialized.
           if (camState.cameraInitialized) {
             // Take the Picture in a try / catch block. If anything goes wrong,
             // catch the error.
@@ -59,7 +61,7 @@ class HomePage extends StatelessWidget {
               // If an error occurs, log the error to the console.
               print(e);
             }
-          }
+          } */
         },
         child: const Icon(Icons.camera_rounded),
       ),

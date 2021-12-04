@@ -18,28 +18,11 @@ class _State extends State<CameraScreen> {
   void initState() {
     super.initState();
     // TODO Instancia y almacena el controlador para la camara
-    /* camState.controller =
-        CameraController(camState.camera, ResolutionPreset.medium);
-    // Next, initialize the controller. This returns a Future.
-    _initializeControllerFuture = camState.controller.initialize(); */
   }
 
   @override
   Widget build(BuildContext context) {
     // TODO Mientras la camara inicia muestra un spinner y luego muestra la vista previa
-    /* return FutureBuilder<void>(
-      future: _initializeControllerFuture,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          // If the Future is complete, display the preview.
-          camState.initialized = true;
-          return CameraPreview(camState.controller);
-        } else {
-          // Otherwise, display a loading indicator.
-          return const Center(child: CircularProgressIndicator());
-        }
-      },
-    ); */
   }
 
   @override

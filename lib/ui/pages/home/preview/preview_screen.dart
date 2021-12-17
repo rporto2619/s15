@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misiontic_template/domain/use_case/controllers/camera_controller.dart';
@@ -17,5 +16,14 @@ class _State extends State<PreviewScreen> {
   @override
   Widget build(BuildContext context) {
     // TODO Si hay una imagen disponible debes mostrarla si no mostrar un spinner
+    return Center(
+      child: Obx(() {
+        if (camState.picturePath.isNotEmpty) {
+          return Image.file(File(camState.picturePath));
+        } else {
+          return const CircularProgressIndicator();
+        }
+      }),
+    );
   }
 }

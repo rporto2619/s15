@@ -47,6 +47,15 @@ class HomePage extends StatelessWidget {
         onPressed: () async {
           // TODO si la camara ha sido inicializada tratar de tomar una foto, si fue exitoso,
           // Pasar a la siguiente pantalla y mostrar la imagen capturada.
+          if (camState.cameraInitialized) {
+            try {
+              final image = await camState.controller.takePicture();
+              camState.path = image.path;
+              controller.screenIndex = 1;
+            } catch (e) {
+              print(e);
+            }
+          }
         },
         child: const Icon(Icons.camera_rounded),
       ),
